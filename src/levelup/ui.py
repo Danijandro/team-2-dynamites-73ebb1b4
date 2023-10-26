@@ -21,10 +21,10 @@ class GameApp:
 
     def game_intro(self):
         while True:
-            response = input("\n\n\n\n\n\n\nWelcome to the Legendary Dynamites Journey" +
+            response = input("\n\n\n\n\n\n\n\nWelcome to the Legendary Dynamites Journey" +
                 "\n\nYou will embark on a journey through a jungle filled with tigers, snakes, and dangerous obstacles," +
                 "\nwith the goal of finding a golden treasure." +
-                "\n\nAre you ready to begin? (y/n)")
+                "\n\n\n\nAre you ready to begin? (y/n) ")
             if response in ["n","N"]:
                 print ("Hope to see you again soon. Thanks!\n\n")
                 sys.exit()
