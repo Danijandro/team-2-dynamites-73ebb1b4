@@ -26,7 +26,7 @@ class GameApp:
                 "\nwith the goal of finding a golden treasure." +
                 "\n\n\n\nAre you ready to begin? (y/n) ")
             if response in ["n","N"]:
-                print ("Hope to see you again soon. Thanks!\n\n")
+                print ("\nHope to see you again soon. Thanks!\n\n\n")
                 sys.exit()
             elif response in ["y","Y"]:
                 break
@@ -38,7 +38,7 @@ class GameApp:
     def move_loop(self):
         while True:
             response = self.prompt(
-                f"Where would you like to go? {VALID_DIRECTIONS}\n(or ctrl+c to quit)",
+                f"Which direction would you like to move? {VALID_DIRECTIONS}\n(or ctrl+c to quit)",
                 lambda x: x in VALID_DIRECTIONS,
             )
             direction = Direction(response)
