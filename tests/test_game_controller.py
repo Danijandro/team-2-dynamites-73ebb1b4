@@ -6,6 +6,7 @@ from levelup.controller import GameController
 # Unit tests for other classes should be in their own .py files (like test_character.py)
 
 CHARACTER_NAME = "Dynamites"
+DEFAULT_CHARACTER_NAME = "Character"
 class TestGameController(TestCase):
     def test_init_gamecontroller_has_status(self):
         testObj = GameController()
@@ -15,4 +16,9 @@ class TestGameController(TestCase):
     def test_create_character_has_name(self):
         testObj = GameController()
         testObj.create_character(CHARACTER_NAME)
-        assert testObj.status.character_name == CHARACTER_NAME  
+        assert testObj.status.character_name == CHARACTER_NAME 
+
+    def test_create_character_has_default_name(self):
+        testObj = GameController()
+        testObj.create_character("")
+        assert testObj.status.character_name == DEFAULT_CHARACTER_NAME     
