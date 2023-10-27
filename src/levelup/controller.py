@@ -8,6 +8,7 @@ from levelup.direction import Direction
 
 
 DEFAULT_CHARACTER_NAME = "Character"
+directionMap={Direction.NORTH:1, Direction.SOUTH:2, Direction.WEST:3, Direction.EAST:4};
 
 #TODO: ADD THINGS YOU NEED FOR STATUS
 @dataclass
@@ -46,6 +47,7 @@ class GameController:
             self.status.character_name = character_name
         else:
             self.status.character_name = DEFAULT_CHARACTER_NAME
+            
 
     def move(self, direction: Direction) -> None:
         print(f"You moved {direction.name}")
