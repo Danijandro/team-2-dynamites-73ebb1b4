@@ -3,6 +3,8 @@ from dataclasses import dataclass
 from enum import Enum
 from levelup.gamemap import GameMap
 from levelup.position import Position
+from levelup.direction import Direction
+
 
 
 DEFAULT_CHARACTER_NAME = "Character"
@@ -13,17 +15,12 @@ class GameStatus:
     running: bool = False
     character_name: str = DEFAULT_CHARACTER_NAME
     # NOTE - Game status will have this as a tuple. The Position should probably be in a class
-    current_position: tuple = (0,0)
+    current_position: tuple = (-100,-100)
     move_count: int = 0
 
-class Direction(Enum):
-    NORTH = "n"
-    SOUTH = "s"
-    EAST = "e"
-    WEST = "w"
+    def _str_(self) -> str:
+        return f"{self.character_name} is currently on {self.current_position} and have moved {self.move_count} steps."
 
-
-directionMap={Direction.NORTH:1,Direction.SOUTH:2,Direction.WEST:3,Direction.EAST:4};
 class CharacterNotFoundException(Exception):
     pass
 
@@ -31,7 +28,6 @@ class InvalidMoveException(Exception):
     pass
 
 class GameController:
-
 
     status: GameStatus
     gameMap: GameMap
