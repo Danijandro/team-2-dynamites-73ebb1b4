@@ -2,7 +2,7 @@ import logging
 from dataclasses import dataclass
 from enum import Enum
 from levelup.gamemap import GameMap
-from levelup.coordinate import Coordinate
+from levelup.position import Position
 
 
 DEFAULT_CHARACTER_NAME = "Character"
@@ -54,10 +54,10 @@ class GameController:
     def move(self, direction: Direction) -> None:
         print(f"You moved {direction.name}")
         print(f"You status {self.status}")
-        update_coordinate: Coordinate = self.gameMap.calculateCordinates(Coordinate(self.status.current_position[0],self.status.current_position[1]),directionMap.get(direction))
+        update_position: Position = self.gameMap.calculateCordinates(Position(self.status.current_position[0],self.status.current_position[1]),directionMap.get(direction))
         # TODO: Implement move - should call something on another class
         # TODO: Should probably also update the game results
-        self.status.current_position = (update_coordinate.x,update_coordinate.y)
+        self.status.current_position = (update_position.x,update_position.y)
         pass
 
     def set_character_position(self, xycoordinates: tuple) -> None:
