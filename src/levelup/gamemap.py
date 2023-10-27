@@ -1,46 +1,46 @@
 
-from levelup.coordinate import Coordinate
+from levelup.position import Position
 
 class GameMap:
-        starting_position = Coordinate(0,0)
+        starting_position = Position(0,0)
         positions = []
 
         numPositions =100;
        
-        def move_south(self,coordinate: Coordinate) -> Coordinate:
-                newY =coordinate.y - 1
+        def move_south(self,position: Position) -> Position:
+                newY =position.y - 1
                 if(self.validate_new_cordinate(newY)):
-                    return Coordinate(coordinate.x,newY)
+                    return Position(position.x,newY)
                 else:
                     print("you cannot move to that direction")
-                    return coordinate   
+                    return position   
 
-        def move_north(self,coordinate: Coordinate) -> Coordinate:
-                newY = coordinate.y + 1
+        def move_north(self,position: Position) -> Position:
+                newY = position.y + 1
                 if(self.validate_new_cordinate(newY)):
-                 return Coordinate(coordinate.x,newY)
+                 return Position(position.x,newY)
                 else:
-                 return coordinate  
+                 return position  
 
-        def move_west(self,coordinate: Coordinate) -> Coordinate:
-                newX = coordinate.x - 1
+        def move_west(self,position: Position) -> Position:
+                newX = position.x - 1
                 if(self.validate_new_cordinate(newX)):
-                 return Coordinate(newX,coordinate.y)
+                 return Position(newX,position.y)
                 else:
-                 return coordinate  
+                 return position  
 
 
-        def move_east(self,coordinate: Coordinate) -> Coordinate:
-                newX = coordinate.x + 1
+        def move_east(self,position: Position) -> Position:
+                newX = position.x + 1
                 if(self.validate_new_cordinate(newX)):
-                 return Coordinate(newX,coordinate.y)
+                 return Position(newX,position.y)
                 else:
-                 return coordinate   
+                 return position   
                     
         def validate_new_cordinate(self,newValue) -> bool:
                 return newValue>=0 and newValue< self.numPositions
 
-        def calculateCordinates(self,currrentPostion:Coordinate,direction) -> Coordinate:
+        def calculateposition(self,currrentPostion:Position,direction) -> Position:
            if direction == 1:
              return self.move_north(currrentPostion)
            elif direction == 2:

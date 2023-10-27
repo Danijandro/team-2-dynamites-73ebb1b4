@@ -54,7 +54,7 @@ class GameController:
     def move(self, direction: Direction) -> None:
         print(f"You moved {direction.name}")
         print(f"You status {self.status}")
-        update_position: Position = self.gameMap.calculateCordinates(Position(self.status.current_position[0],self.status.current_position[1]),directionMap.get(direction))
+        update_position: Position = self.gameMap.calculateposition(Position(self.status.current_position[0],self.status.current_position[1]),directionMap.get(direction))
         # TODO: Implement move - should call something on another class
         # TODO: Should probably also update the game results
         self.status.current_position = (update_position.x,update_position.y)
