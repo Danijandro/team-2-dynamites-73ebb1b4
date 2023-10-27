@@ -36,6 +36,7 @@ class GameApp:
         self.controller.create_character(character)
 
     def move_loop(self):
+        self.controller.set_character_position((0,0))
         while True:
             response = self.prompt(
                 f"Which direction would you like to move? {VALID_DIRECTIONS}\n(or ctrl+c to quit)",
@@ -50,6 +51,7 @@ class GameApp:
                 # TODO: make sure that we are not duplicationg this statement in controller
                 print(f"You moved {direction.name}")
             print(self.controller.status)
+        
 
     def start(self):
         self.game_intro()

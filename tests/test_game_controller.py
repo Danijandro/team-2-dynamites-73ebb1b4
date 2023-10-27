@@ -1,5 +1,8 @@
 from unittest import TestCase
 from levelup.controller import GameController
+from levelup.position import Position
+from levelup.direction import Direction
+
 
 # THIS IS AN EXAMPLE UNIT TEST. 
 # All the unit tests for the Game Controller should go here
@@ -22,3 +25,11 @@ class TestGameController(TestCase):
         testObj = GameController()
         testObj.create_character("")
         assert testObj.status.character_name == DEFAULT_CHARACTER_NAME     
+
+    def test_controller_move(self):
+        testObj = GameController()
+        testObj.status.current_position = (0,0)
+        testObj.move(Direction.NORTH)
+        assert testObj.status.current_position[0] == 0 
+        assert testObj.status.current_position[1] == 1 
+        assert testObj.status.move_count == 1      

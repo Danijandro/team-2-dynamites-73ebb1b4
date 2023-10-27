@@ -47,31 +47,24 @@ class GameController:
             self.status.character_name = character_name
         else:
             self.status.character_name = DEFAULT_CHARACTER_NAME
-            
+
 
     def move(self, direction: Direction) -> None:
-        print(f"You moved {direction.name}")
-        print(f"You status {self.status}")
         update_position: Position = self.gameMap.calculateposition(Position(self.status.current_position[0],self.status.current_position[1]),directionMap.get(direction))
-        # TODO: Implement move - should call something on another class
-        # TODO: Should probably also update the game results
-        self.status.current_position = (update_position.x,update_position.y)
-        pass
+        self.set_character_position((update_position.x,update_position.y))
+        self.set_current_move_count(self.status.move_count)
+        
 
     def set_character_position(self, xycoordinates: tuple) -> None:
-        print("this is in set_character_position")
-        # TODO: IMPLEMENT THIS TO SET CHARACTERS CURRENT POSITION -- exists to be testable
-        pass
+        self.status.current_position = xycoordinates
+
 
     def set_current_move_count(self, move_count: int) -> None:
-        print("this is in set_current_move_count")
-        # TODO: IMPLEMENT THIS TO SET CURRENT MOVE COUNT -- exists to be testable
-        pass
+          self.status.move_count = move_count+1;
+           
 
     def get_total_positions(self) -> int:
         print("this is in get_total_positions")
-        # TODO: IMPLEMENT THIS TO GET THE TOTAL POSITIONS FROM THE MAP - - exists to be
-        # testable
-        return -10
+        return  self.status.move_count
 
     
