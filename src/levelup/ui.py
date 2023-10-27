@@ -47,6 +47,7 @@ class GameApp:
             except InvalidMoveException:
                 print(f"You cannot move {direction}")
             else:
+                # TODO: make sure that we are not duplicationg this statement in controller
                 print(f"You moved {direction.name}")
             print(self.controller.status)
 
